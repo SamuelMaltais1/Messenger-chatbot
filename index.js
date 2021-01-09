@@ -35,7 +35,7 @@ app.post('/webhook', (req, res) => {
         
         console.log('Sender PSID: ' + sender_psid);
         console.log(webhook_event);
-        if(!sender_psid in user)  {
+        if(!sender_psid in users)  {
           users.push(sender_psid);
         }
         if (webhook_event.message) {
