@@ -76,7 +76,7 @@ app.get('/webhook', (req, res) => {
   });
   //cette fonction me permettre de lire les messages obtenu
   function handleMessage(sender_psid, recieved_message){
-
+    sendMessage(sender_psid, "hehelol");
   }
   //cette fonction est celle qui envoie les messages
   function sendMessage(message, recipient){
