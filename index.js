@@ -27,6 +27,8 @@ app.post('/webhook', (req, res) => {
         // Gets the message. entry.messaging is an array, but 
         // will only ever contain one message, so we get index 0
         let webhook_event = entry.messaging[0];
+        let sender_psid = webhook_event.sender.id;
+        console.log('Sender PSID: ' + sender_psid);
         console.log(webhook_event);
         if (webhook_event.message) {
             handleMessage(sender_psid, webhook_event.message);        
@@ -70,9 +72,6 @@ app.get('/webhook', (req, res) => {
         // Responds with '403 Forbidden' if verify tokens do not match
         res.sendStatus(403);      
       }
-    }
-    else{
-      res.send("Inculde correct token and mode")
     }
   });
   //cette fonction me permettre de lire les messages obtenu
