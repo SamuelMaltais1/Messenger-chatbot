@@ -4,6 +4,7 @@
 const
   express = require('express'),
   bodyParser = require('body-parser'),
+  request = require('request'),
   app = express().use(bodyParser.json()); // creates express http server
 const PAGE_ACCESS_TOKEN = "EAALwWARh1bQBAGPfB0Lhz8YZCd9xGFmfxufxikXkPgdCKXqv9XgAOQtfu89fqKEbyDfkiNu7Hsb6VWZCL6Vgsqo8yI6ZAIKd0LHyaTrP5jZAiy7EfCgxb71KrPte5ayLOSPRZCGLl3otxnl82BVcN3MdzuedjWvpQ9LfZARIgMFWFpbkPZACNvq";
 // Sets server port and logs message on success
