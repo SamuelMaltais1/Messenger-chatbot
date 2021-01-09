@@ -5,9 +5,14 @@ const
   express = require('express'),
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json()); // creates express http server
-const PAGE_ACCESS_TOKEN = EAALwWARh1bQBAGPfB0Lhz8YZCd9xGFmfxufxikXkPgdCKXqv9XgAOQtfu89fqKEbyDfkiNu7Hsb6VWZCL6Vgsqo8yI6ZAIKd0LHyaTrP5jZAiy7EfCgxb71KrPte5ayLOSPRZCGLl3otxnl82BVcN3MdzuedjWvpQ9LfZARIgMFWFpbkPZACNvq;
+const PAGE_ACCESS_TOKEN = "EAALwWARh1bQBAGPfB0Lhz8YZCd9xGFmfxufxikXkPgdCKXqv9XgAOQtfu89fqKEbyDfkiNu7Hsb6VWZCL6Vgsqo8yI6ZAIKd0LHyaTrP5jZAiy7EfCgxb71KrPte5ayLOSPRZCGLl3otxnl82BVcN3MdzuedjWvpQ9LfZARIgMFWFpbkPZACNvq";
 // Sets server port and logs message on success
-app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
+app.listen(process.env.PORT || 52534, () => console.log('webhook is listening'));
+
+app.get('/', (req,res) => {
+    console.log("Path normal, pas necessaire")
+    res.send("hello !");
+});
 
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
@@ -66,11 +71,15 @@ app.get('/webhook', (req, res) => {
         res.sendStatus(403);      
       }
     }
+    else{
+      res.send("Inculde correct token and mode")
+    }
   });
   //cette fonction me permettre de lire les messages obtenu
   function handleMessage(sender_psid, recieved_message){
 
   }
+  //cette fonction est celle qui envoie les messages
   function sendMessage(message, recipient){
     let request_body = {
         "recipient": {
@@ -91,4 +100,7 @@ app.get('/webhook', (req, res) => {
           console.error("Unable to send message:" + err);
         }
       }); 
-  }
+      function handlePostback(sender_psid, received_postback) {
+
+      }
+}
