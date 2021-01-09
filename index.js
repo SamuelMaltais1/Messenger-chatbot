@@ -89,7 +89,7 @@ app.get('/webhook', (req, res) => {
     let response;
     console.log(recieved_message);
     if(recieved_message.text){
-      reponse = {
+      response = {
         "text":"Bonjour ! Je suis l'assistant virtuel de Grame !"
       }
       sendMessage(response, sender_psid);
@@ -150,7 +150,7 @@ app.get('/webhook', (req, res) => {
         let response;
         switch(received_postback.payload){
           case "Path1":
-          reponse = {
+          response = {
             "text":"Le Grame cherche constamment des bénévoles pour \nses activités et missions à travers le Québec. "
           }
           sendMessage(response, sender_psid);  
