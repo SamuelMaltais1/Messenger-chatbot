@@ -16,7 +16,6 @@ app.get('/', (req,res) => {
 
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
-    console.log(req);
     let body = req.body;
     // Checks this is an event from a page subscription
     if (body.object === 'page') {
@@ -77,9 +76,9 @@ app.get('/webhook', (req, res) => {
   });
   //cette fonction me permettre de lire les messages obtenu
   function handleMessage(sender_psid, recieved_message){
-    let response
+    let response;
     response = {
-      "text": `You sent the message: "${received_message.text}".`
+      "text": `Have a nice day !`
     }
     sendMessage(response, sender_psid);
   }
