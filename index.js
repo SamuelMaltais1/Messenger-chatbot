@@ -144,7 +144,7 @@ app.get('/webhook', (req, res) => {
                 "payload": {
                   "template_type": "generic",
                   "elements": [{
-                  "title": "Le Grame cherche constamment des bénévoles pour \nses activités et missions à travers le Québec. ",
+                  "text": "Le Grame cherche constamment des bénévoles pour \nses activités et missions à travers le Québec. ",
                     "buttons": [
                       {
                         "type": "postback",
@@ -153,7 +153,7 @@ app.get('/webhook', (req, res) => {
                       },
                       {
                         "type": "postback",
-                        "title": "option 4",
+                        "title": "Participer à une collecte !",
                         "payload": "Path4",
                       }
                     ],
@@ -169,7 +169,7 @@ app.get('/webhook', (req, res) => {
                 "payload": {
                   "template_type": "generic",
                   "elements": [{
-                    "title": "Pas de problème, n'hésite pas à changer d'avis,\n je serai la, après tout, je suis un robot !",
+                    "text": "Pas de problème, n'hésite pas à changer d'avis,\n je serai la, après tout, je suis un robot !",
                     "buttons": [
                       {
                         "type": "postback",
@@ -177,6 +177,20 @@ app.get('/webhook', (req, res) => {
                         "payload": "Path1",
                       }
                     ],
+                  }]
+                }
+              }
+            }
+            break;
+          case "Path3":
+            response = {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [{
+                    "title": "Inscrit-toi sur notre site !",
+                    "link": "https://grame.org/carriere-et-benevolat/",
                   }]
                 }
               }
