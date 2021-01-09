@@ -77,6 +77,7 @@ app.get('/webhook', (req, res) => {
   //cette fonction me permettre de lire les messages obtenu
   function handleMessage(sender_psid, recieved_message){
     let response;
+    console.log(recieved_message);
     response = {
       "text": `Have a nice day !`
     }
