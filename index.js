@@ -77,7 +77,11 @@ app.get('/webhook', (req, res) => {
   });
   //cette fonction me permettre de lire les messages obtenu
   function handleMessage(sender_psid, recieved_message){
-    sendMessage("hehexd", sender_psid);
+    let response
+    response = {
+      "text": `You sent the message: "${received_message.text}".`
+    }
+    sendMessage(response, sender_psid);
   }
   //cette fonction est celle qui envoie les messages
   function sendMessage(message, recipient){
