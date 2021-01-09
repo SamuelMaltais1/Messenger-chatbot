@@ -157,12 +157,12 @@ app.get('/webhook', (req, res) => {
                     "buttons": [
                       {
                         "type": "postback",
-                        "title": "Devenir benevole !",
+                        "title": "Devenir benevole!",
                         "payload": "Path3",
                       },
                       {
                         "type": "postback",
-                        "title": "Participer à une collecte !",
+                        "title": "Participer à une collecte!",
                         "payload": "Path4",
                       }
                     ],
@@ -172,13 +172,17 @@ app.get('/webhook', (req, res) => {
             }
             break;
           case "Path2":
-            response = {
+          response = {
+            "text": "Pas de problème, n'hésite pas à changer d'avis,\n je serai la, après tout, je suis un robot !"
+          }  
+          sendMessage(response, sender_psid);
+          response = {
               "attachment": {
                 "type": "template",
                 "payload": {
                   "template_type": "generic",
                   "elements": [{
-                    "title": "Pas de problème, n'hésite pas à changer d'avis,\n je serai la, après tout, je suis un robot !",
+                    "title": ":D",
                     "buttons": [
                       {
                         "type": "postback",
@@ -198,7 +202,7 @@ app.get('/webhook', (req, res) => {
             break;
           case "Path4":
             response = {
-              "text":"Rejoigner l'événement sur notre page !, vous serez aussi notifier lorsqu'un nouvel évenement aura lieu"
+              "text":"Rejoignez l'événement sur notre page !, vous serez aussi notifié lorsqu'un nouvel évenement aura lieu"
             }
           }
         // Envoie le message
