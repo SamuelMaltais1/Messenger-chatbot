@@ -79,10 +79,35 @@ app.get('/webhook', (req, res) => {
   function handleMessage(sender_psid, recieved_message){
     let response;
     console.log(recieved_message);
-    response = {
-      "text": `Have a nice day !`
+    if(recieved_message.text){
+      response = {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": [{
+              "title": "Bonjour ! Je suis l'assistant virtuel de Grame",
+              "subtitle": "Tap a button to answer.",
+              "buttons": [
+                {
+                  "type": "postback",
+                  "title": "option 1",
+                  "payload": "Path1",
+                },
+                {
+                  "type": "postback",
+                  "title": "option 2",
+                  "payload": "Path2",
+                }
+              ],
+            }]
+          }
+        }
+      }
+      sendMessage(response, sender_psid);
     }
-    sendMessage(response, sender_psid);
+    
+    
   }
   //cette fonction est celle qui envoie les messages
   function sendMessage(message, recipient){
@@ -106,6 +131,60 @@ app.get('/webhook', (req, res) => {
         }
       }); 
       function handlePostback(sender_psid, received_postback) {
-
+        //switch case qui contient les reponses pour chaque payload
+        switch(received_postback.payload){
+          case "Path1":
+            response = {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [{
+                    "title": "Vous avez choisi l'option 1",
+                    "buttons": [
+                      {
+                        "type": "postback",
+                        "title": "option 3",
+                        "payload": "Path3",
+                      },
+                      {
+                        "type": "postback",
+                        "title": "option 4",
+                        "payload": "Path4",
+                      }
+                    ],
+                  }]
+                }
+              }
+            }
+            break;
+          case "Path2":
+            response = {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [{
+                    "title": "Vous avez choisi option 2",
+                    "buttons": [
+                      {
+                        "type": "postback",
+                        "title": "option 1",
+                        "payload": "Path1",
+                      },
+                      {
+                        "type": "postback",
+                        "title": "option 2",
+                        "payload": "Path2",
+                      }
+                    ],
+                  }]
+                }
+              }
+            }
+            break;
+          }
+        // Envoie le message
+        sendMessage(response, sender_psid);
       }
 }
