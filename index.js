@@ -184,18 +184,13 @@ app.get('/webhook', (req, res) => {
             break;
           case "Path3":
             response = {
-              "attachment": {
-                "type": "template",
-                "payload": {
-                  "template_type": "generic",
-                  "elements": [{
-                    "title": "Inscrit-toi sur notre site !",
-                    "link": "https://grame.org/carriere-et-benevolat/",
-                  }]
-                }
-              }
+              "text":"Rejoint-nous sur notre site ! https://grame.org/carriere-et-benevolat/"
             }
             break;
+          case "Path4":
+            response = {
+              "text":"Rejoigner l'événement sur notre page !, vous serez aussi notifier lorsqu'un nouvel évenement aura lieu"
+            }
           }
         // Envoie le message
         sendMessage(response, sender_psid);
