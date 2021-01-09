@@ -87,17 +87,17 @@ app.get('/webhook', (req, res) => {
           "payload": {
             "template_type": "generic",
             "elements": [{
-              "title": "Bonjour ! Je suis l'assistant virtuel de Grame",
-              "subtitle": "Tap a button to answer.",
+              "title": "Bonjour ! Je suis l'assistant virtuel de Grame ! Souhaitez-vous vous impliquer dans votre communauté en tant que bénévole ou en participant à des opérations de nétoyages ?",
+              "subtitle": "Appuie un bouton pour répondre !",
               "buttons": [
                 {
                   "type": "postback",
-                  "title": "option 1",
+                  "title": "Oui !",
                   "payload": "Path1",
                 },
                 {
                   "type": "postback",
-                  "title": "option 2",
+                  "title": "non :(",
                   "payload": "Path2",
                 }
               ],
@@ -144,7 +144,7 @@ app.get('/webhook', (req, res) => {
                 "payload": {
                   "template_type": "generic",
                   "elements": [{
-                    "title": "Vous avez choisi l'option 1",
+                  "title": "Le Grame cherche constamment des bénévoles pour ses activités et missions à travers le Québec. ",
                     "buttons": [
                       {
                         "type": "postback",
@@ -169,17 +169,12 @@ app.get('/webhook', (req, res) => {
                 "payload": {
                   "template_type": "generic",
                   "elements": [{
-                    "title": "Vous avez choisi option 2",
+                    "title": "Pas de problème, n'hésite pas à changer d'avis, je serai la, après tout, je suis un robot !",
                     "buttons": [
                       {
                         "type": "postback",
-                        "title": "option 1",
+                        "title": "Changer d'avis",
                         "payload": "Path1",
-                      },
-                      {
-                        "type": "postback",
-                        "title": "option 2",
-                        "payload": "Path2",
                       }
                     ],
                   }]
