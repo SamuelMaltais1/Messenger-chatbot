@@ -7,6 +7,7 @@ const
   request = require('request'),
   app = express().use(bodyParser.json()); // creates express http server
 const PAGE_ACCESS_TOKEN = "EAALwWARh1bQBAGPfB0Lhz8YZCd9xGFmfxufxikXkPgdCKXqv9XgAOQtfu89fqKEbyDfkiNu7Hsb6VWZCL6Vgsqo8yI6ZAIKd0LHyaTrP5jZAiy7EfCgxb71KrPte5ayLOSPRZCGLl3otxnl82BVcN3MdzuedjWvpQ9LfZARIgMFWFpbkPZACNvq";
+var users = [];
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 52534, () => console.log('webhook is listening'));
 
@@ -16,6 +17,9 @@ app.get('/', (req,res) => {
 });
 
 // Creates the endpoint for our webhook 
+app.post('/admin',(req,res) =>{
+  res.send(users);
+})
 app.post('/webhook', (req, res) => {  
     let body = req.body;
     // Checks this is an event from a page subscription
@@ -28,8 +32,12 @@ app.post('/webhook', (req, res) => {
         // will only ever contain one message, so we get index 0
         let webhook_event = entry.messaging[0];
         let sender_psid = webhook_event.sender.id;
+        
         console.log('Sender PSID: ' + sender_psid);
         console.log(webhook_event);
+        if(!sender_psid in user)  {
+          users.push(sender_psid);
+        }
         if (webhook_event.message) {
             handleMessage(sender_psid, webhook_event.message);        
           } else if (webhook_event.postback) {
