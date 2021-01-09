@@ -139,9 +139,6 @@ app.get('/webhook', (req, res) => {
         switch(received_postback.payload){
           case "Path1":
             response = {
-              "message": {
-                "text": "Le Grame cherche constamment des bénévoles pour \nses activités et missions à travers le Québec. "
-              },
               "attachment": {
                 "type": "template",
                 "payload": {
