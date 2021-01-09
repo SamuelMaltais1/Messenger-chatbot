@@ -202,7 +202,7 @@ app.get('/webhook', (req, res) => {
             break;
           case "Path4":
             response = {
-              "text":"Rejoignez l'événement sur notre page !, vous serez aussi notifié lorsqu'un nouvel évenement aura lieu"
+              "text":"Rejoignez l'événement sur notre page ! Vous serez aussi notifié lorsqu'un nouvel évenement aura lieu"
             }
           }
         // Envoie le message

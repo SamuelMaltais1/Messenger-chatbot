@@ -25,3 +25,10 @@ let request_body = {
 Pour chaque payload différent, j'ai créé un énorme switch case qui permettrade gerer tous les choix
 de conversation avec le robot pour chaque étape. Chaque choix menera à un 'path', qui sont numérotés.
 
+commande de console pour Heroku:
+//Regarder les messages de console
+heroku logs -trail -a grame-test
+//Preparer les modifications et le build
+git commit -am "make it better"
+//pour publier les modifications
+git push heroku master
