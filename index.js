@@ -135,6 +135,7 @@ app.get('/webhook', (req, res) => {
     }
     function handlePostback(sender_psid, received_postback) {
         //switch case qui contient les reponses pour chaque payload
+        let response;
         switch(received_postback.payload){
           case "Path1":
             response = {
