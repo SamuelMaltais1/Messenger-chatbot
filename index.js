@@ -148,7 +148,7 @@ app.get('/webhook', (req, res) => {
                     "buttons": [
                       {
                         "type": "postback",
-                        "title": "option 3",
+                        "title": "Devenir benevole !",
                         "payload": "Path3",
                       },
                       {

@@ -1,7 +1,7 @@
 {
   "name": "package",
   "version": "1.0.0",
-  "description": "GRAMME messenger bot",
+  "description": "GRAME messenger bot",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
