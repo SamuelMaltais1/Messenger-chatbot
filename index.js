@@ -89,13 +89,17 @@ app.get('/webhook', (req, res) => {
     let response;
     console.log(recieved_message);
     if(recieved_message.text){
+      reponse = {
+        "text":"Bonjour ! Je suis l'assistant virtuel de Grame !"
+      }
+      sendMessage(response, sender_psid);
       response = {
         "attachment": {
           "type": "template",
           "payload": {
             "template_type": "generic",
             "elements": [{
-              "title": "Bonjour ! Je suis l'assistant virtuel de Grame ! Souhaitez-vous vous impliquer dans votre communauté en tant que bénévole ou en participant à des opérations de nétoyages ?",
+              "title": "Souhaitez-vous vous impliquer dans votre communauté en tant que bénévole ou en participant à des opérations de nétoyages ?",
               "subtitle": "Appuie un bouton pour répondre !",
               "buttons": [
                 {
@@ -146,13 +150,17 @@ app.get('/webhook', (req, res) => {
         let response;
         switch(received_postback.payload){
           case "Path1":
-            response = {
+          reponse = {
+            "text":"Le Grame cherche constamment des bénévoles pour \nses activités et missions à travers le Québec. "
+          }
+          sendMessage(response, sender_psid);  
+          response = {
               "attachment": {
                 "type": "template",
                 "payload": {
                   "template_type": "generic",
                   "elements": [{
-                  "title": "Le Grame cherche constamment des bénévoles pour \nses activités et missions à travers le Québec. ",
+                  "title": "Participeriez-vous à notre cause ?",
                     "buttons": [
                       {
                         "type": "postback",
