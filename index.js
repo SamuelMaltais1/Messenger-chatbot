@@ -139,12 +139,15 @@ app.get('/webhook', (req, res) => {
         switch(received_postback.payload){
           case "Path1":
             response = {
+              "message": {
+                "text": "Le Grame cherche constamment des bénévoles pour \nses activités et missions à travers le Québec. "
+              },
               "attachment": {
                 "type": "template",
                 "payload": {
                   "template_type": "generic",
                   "elements": [{
-                  "text": "Le Grame cherche constamment des bénévoles pour \nses activités et missions à travers le Québec. ",
+                  "title": "Le Grame cherche constamment des bénévoles pour \nses activités et missions à travers le Québec. ",
                     "buttons": [
                       {
                         "type": "postback",
@@ -169,7 +172,7 @@ app.get('/webhook', (req, res) => {
                 "payload": {
                   "template_type": "generic",
                   "elements": [{
-                    "text": "Pas de problème, n'hésite pas à changer d'avis,\n je serai la, après tout, je suis un robot !",
+                    "title": "Pas de problème, n'hésite pas à changer d'avis,\n je serai la, après tout, je suis un robot !",
                     "buttons": [
                       {
                         "type": "postback",
