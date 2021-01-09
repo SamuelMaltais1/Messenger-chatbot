@@ -144,7 +144,7 @@ app.get('/webhook', (req, res) => {
                 "payload": {
                   "template_type": "generic",
                   "elements": [{
-                  "title": "Le Grame cherche constamment des bénévoles pour ses activités et missions à travers le Québec. ",
+                  "title": "Le Grame cherche constamment des bénévoles pour \nses activités et missions à travers le Québec. ",
                     "buttons": [
                       {
                         "type": "postback",
@@ -169,7 +169,7 @@ app.get('/webhook', (req, res) => {
                 "payload": {
                   "template_type": "generic",
                   "elements": [{
-                    "title": "Pas de problème, n'hésite pas à changer d'avis, je serai la, après tout, je suis un robot !",
+                    "title": "Pas de problème, n'hésite pas à changer d'avis,\n je serai la, après tout, je suis un robot !",
                     "buttons": [
                       {
                         "type": "postback",
