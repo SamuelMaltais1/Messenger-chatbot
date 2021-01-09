@@ -75,6 +75,7 @@ app.get('/webhook', (req, res) => {
       }
     }
   });
+  
   //cette fonction me permettre de lire les messages obtenu
   function handleMessage(sender_psid, recieved_message){
     let response;
@@ -109,6 +110,7 @@ app.get('/webhook', (req, res) => {
     
     
   }
+  
   //cette fonction est celle qui envoie les messages
   function sendMessage(message, recipient){
     let request_body = {
@@ -130,7 +132,8 @@ app.get('/webhook', (req, res) => {
           console.error("Unable to send message:" + err);
         }
       }); 
-      function handlePostback(sender_psid, received_postback) {
+    }
+    function handlePostback(sender_psid, received_postback) {
         //switch case qui contient les reponses pour chaque payload
         switch(received_postback.payload){
           case "Path1":
@@ -187,4 +190,3 @@ app.get('/webhook', (req, res) => {
         // Envoie le message
         sendMessage(response, sender_psid);
       }
-}
